@@ -21,9 +21,7 @@ stage('Compile Stage') {
 
          stage('MVN Sonarqube') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=squ_20940abd7d7ed773bdffdda162ef292f8e594582 -Dmaven.test.skip=true'
-            }
-        }
+ sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.91.128:9000 -Dsonar.token=squ_e59aab199b1a32e29c17d47545a04c49b1184dc1 -Dmaven.test.skip=true'        }
 
 }
 }
