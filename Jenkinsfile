@@ -9,9 +9,9 @@ stage('GIT') {
 
            steps {
 
-               git branch: 'assil',
+               git branch: 'main',
 
-               url: 'https://github.com/assilbelhaj/jobpipe.git'
+               url: 'https://github.com/chourabiaziz/job-pipe.git'
 
           }
 
