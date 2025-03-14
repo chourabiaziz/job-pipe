@@ -48,13 +48,11 @@ stage('Deploy Image') {
     }
 }
 
-stage('Docker compose') {
-    steps {
-         sh 'docker-compose -f /chemin/vers/docker-compose.yml up -d'
-    }
-}
-
-
+     stage('Docker compose') {
+                              steps {
+                                  sh 'docker compose up'
+                              }
+            }
 
 
 
