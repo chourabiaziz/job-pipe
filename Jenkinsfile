@@ -40,22 +40,17 @@ stage('Deploy to Nexus') {
         }
 stage('Deploy Image') {
     steps {
-        withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
-            script {
-                // Connecte-toi à Docker Hub
-                sh "echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USER --password-stdin"
-                
-                // Push de l'image Docker
-                sh "docker push chourabiaziz1/kaddem:1.0"
-            }
-        }
+        withCredentials([usernamePassword(credentialsId: '47012056-1f38-4ee9-bdcc-99d6650a3b25', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
+    sh "echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USER --password-stdin"
+    sh "docker push chourabiaziz1/kaddem:1.0"
+}
+
     }
 }
 
 stage('Docker compose') {
     steps {
-        // Assurez-vous que docker-compose est dans le bon répertoire
-        sh 'docker-compose -f /chemin/vers/docker-compose.yml up -d'
+         sh 'docker-compose -f /chemin/vers/docker-compose.yml up -d'
     }
 }
 
