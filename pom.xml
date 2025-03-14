@@ -50,12 +50,17 @@
 
     </dependencies>
 <distributionManagement>
-		<repository>
-			<id>deploymeneRepo</id>
-			<name>Nexus Repository</name>
-			<url>http://192.168.91.128:8081/repository/maven-releases/</url>
-		</repository>
-	</distributionManagement>
+    <repository>
+        <id>deploymentRepo</id>
+        <name>Nexus Releases Repository</name>
+        <url>http://192.168.91.128:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>deploymentRepo</id>
+        <name>Nexus Snapshots Repository</name>
+        <url>http://192.168.91.128:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
     <build>
         <plugins>
             <plugin>
