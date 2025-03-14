@@ -35,26 +35,26 @@ stage('Deploy to Nexus') {
 
  stage('Building image') {
             steps {
-                sh 'docker build -t ezzdinbz/timesheet-devops:1.0.0 .'
+                sh 'docker build -t chourabiaziz1/timesheet-devops:1.0.0 .'
             }
         }
 
-       stage('Deploy Image') {
-           steps {
-               sh '''
-                   echo "dckr_pat_kjJJgNHGXnSUsdbgj0xk5ywRNb4" | docker login -u "ezzdinbz" --password-stdin
-                   docker push ezzdinbz/timesheet-devops:1.0.0
-               '''
-           }
-       }
-
-
-            stage('Docker compose') {
-                              steps {
-                                  sh 'docker compose up'
-                              }
+        stage('Deploy Image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh '''
+                        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push chourabiaziz1/timesheet-devops:1.0.0
+                    '''
+                }
             }
+        }
 
+        stage('Docker compose') {
+            steps {
+                sh 'docker compose up -d' // Use -d to run in detached mode
+            }
+        }
 
 
 
