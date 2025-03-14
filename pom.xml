@@ -15,7 +15,7 @@
     <description>kaddem</description>
     <properties>
     <java.version>1.8</java.version>
-    <sonar.login>squ_20940abd7d7ed773bdffdda162ef292f8e594582</sonar.login>
+    <sonar.login>squ_e59aab199b1a32e29c17d47545a04c49b1184dc1</sonar.login>
 </properties>
     <dependencies>
         <dependency>
@@ -49,7 +49,13 @@
         </dependency>
 
     </dependencies>
-
+<distributionManagement>
+		<repository>
+			<id>deploymeneRepo</id>
+			<name>Nexus Repository</name>
+			<url>http://192.168.91.128:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
     <build>
         <plugins>
             <plugin>
