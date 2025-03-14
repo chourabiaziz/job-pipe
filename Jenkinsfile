@@ -52,7 +52,7 @@ stage('Deploy to Nexus') {
 
         stage('Docker compose') {
             steps {
-                sh 'docker compose up -d' // Use -d to run in detached mode
+                sh 'docker compose up -d'
             }
         }
 
