@@ -10,5 +10,19 @@ checkout([$class: 'GitSCM',
 
             }
         }
+        stage ('Compile Stage') {
+
+    steps {
+
+        sh 'mvn clean compile'
+
+    }
+     stage('MVN Sonarqube') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=squ_03bfe3bbdc402fe989c8c1cec222f95456b6c770 -Dmaven.test.skip=true'
+            }
+        }
+
+}
     }
 }
