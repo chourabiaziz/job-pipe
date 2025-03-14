@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout')
+        stage('GITHUB')
          {
                    steps {
               checkout([$class: 'GitSCM',
@@ -12,7 +12,7 @@ pipeline {
              }
         }
        
-stage('Compile Stage') {
+stage('Compilation') {
             steps {
                 sh 'mvn clean compile package'
             }
