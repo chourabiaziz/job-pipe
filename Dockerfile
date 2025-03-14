@@ -1,7 +1,15 @@
+# Use an official OpenJDK runtime as a parent image
 FROM openjdk:8-jdk-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Expose the port the app runs on
 EXPOSE 8082
-ADD target/timesheet-devops-1.0.jar timesheet-devops-1.0.jar
-ENTRYPOINT ["java","-jar","timesheet-devops-1.0.jar"]
 
+# Copy the built JAR file from the target directory into the container
+# Make sure the JAR file exists in the target directory (you should run `mvn clean package` first)
+COPY target/job-pipe-1.0.0.jar /app/job-pipe.jar
 
- 
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "/app/job-pipe.jar"]
