@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/chourabiaziz/job-pipe.git'
+checkout([$class: 'GitSCM',
+    branches: [[name: '*/main']],
+    userRemoteConfigs: [[url: 'https://github.com/chourabiaziz/job-pipe.git']]
+])
+
             }
         }
     }
