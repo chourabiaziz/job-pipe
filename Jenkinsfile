@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/votre-repo.git'
+                git branch: 'main', url: 'https://github.com/chourabiaziz/job-pipe.git'
             }
         }
     }
