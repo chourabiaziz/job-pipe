@@ -35,7 +35,7 @@ stage('Deploy to Nexus') {
 
  stage('Building image') {
             steps { 
-                sh 'docker build -t chourabiaziz1/kaddem:1.0.0 .'
+                sh 'docker build -t chourabiaziz1/kaddem:1.0 .'
             }
         }
 
@@ -44,7 +44,7 @@ stage('Deploy to Nexus') {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker push chourabiaziz1/kaddem:1.0.0
+                        docker push chourabiaziz1/kaddem:1.0
                     '''
                 }
             }

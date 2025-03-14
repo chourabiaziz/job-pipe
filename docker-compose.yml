@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: chourabiaziz1/kaddem:1.0.0
+    image: chourabiaziz1/kaddem:1.0
     restart: always
     depends_on:
       - mysql_db
