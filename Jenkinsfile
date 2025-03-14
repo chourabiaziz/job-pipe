@@ -5,7 +5,7 @@ pipeline {
          {
                    steps {
               checkout([$class: 'GitSCM',
-              ranches: [[name: '*/main']],
+              branches: [[name: '*/main']],
              userRemoteConfigs: [[url: 'https://github.com/chourabiaziz/job-pipe.git']]
                         ])
 
