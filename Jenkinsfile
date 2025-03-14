@@ -21,7 +21,7 @@ stage('Compile Stage') {
 
          stage('MVN Sonarqube') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=squ_03bfe3bbdc402fe989c8c1cec222f95456b6c770 -Dmaven.test.skip=true'
+                sh 'mvn sonar:sonar -Dsonar.login=squ_20940abd7d7ed773bdffdda162ef292f8e594582 -Dmaven.test.skip=true'
             }
         }
 
